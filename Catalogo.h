@@ -27,7 +27,7 @@ class Catalogo {
 
     // Operadores de troca
     Filme* operator()(string, string);
-    //Filme* operator()(string, double);
+    Filme* operator()(string, double);
 
     // Mostrar catalogo
     void show();

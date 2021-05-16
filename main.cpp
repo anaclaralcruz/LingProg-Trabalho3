@@ -36,6 +36,9 @@ int main (){
         cout << "EH NULO!!!!!!!!" << endl;
     else
         cout << "Filme 3\t" << filme3->getNome() << '\t' << filme3->getProdutora() << '\t' << filme3->getNota() << endl;
+    
+    filme3 = catalogo("Batata frita", 10.0);
+    cout << "Filme 3\t" << filme3->getNome() << '\t' << filme3->getProdutora() << '\t' << filme3->getNota() << endl;
 
     return OK ;
 }

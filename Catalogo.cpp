@@ -53,6 +53,15 @@ Filme* Catalogo::operator()(string nome, string novaProdutora){
     return filmeAlterado;
 }
 
+// Trocar a nota de um filme
+Filme* Catalogo::operator()(string nome, double novaNota){
+    Filme* filmeAlterado = (*this)(nome);
+    if (! filmeAlterado)
+        return NULL ;
+    filmeAlterado->setNota(novaNota);
+    return filmeAlterado;
+}
+
 // Mostrar catalogo
 void Catalogo::show(){
     cout << "CATALOGO: \n" ;
