@@ -14,25 +14,27 @@
 using namespace std;
 
 class Catalogo {
-  public:
-    // Construtor
-    Catalogo();
+    // Operadores globais
+    friend ostream &operator<<(ostream&, const Filme &);
+    public:
+        // Construtor
+        Catalogo();
 
-    // Operadores de insercao e remocao
-    void operator+=(Filme &);
-    void operator-=(Filme &);
+        // Operadores de insercao e remocao
+        void operator+=(Filme &);
+        void operator-=(Filme &);
 
-    // Operador de busca
-    Filme* operator()(string);
+        // Operador de busca
+        Filme* operator()(string);
 
-    // Operadores de troca
-    Filme* operator()(string, string);
-    Filme* operator()(string, double);
+        // Operadores de troca
+        Filme* operator()(string, string);
+        Filme* operator()(string, double);
 
-    // Mostrar catalogo
-    void show();
+        // Mostrar catalogo
+        void show();
 
-  private:
-    // Lista de filmes
-    vector<Filme> filmes;
+    private:
+        // Lista de filmes
+        vector<Filme> filmes;
 };
