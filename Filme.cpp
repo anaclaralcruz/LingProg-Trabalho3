@@ -34,14 +34,11 @@ istream &operator>>(istream & input, Filme& filme){
   return input;
 }
 
-
 // Construtor
 Filme::Filme(string newNome, string newProdutora, double newNota):
     nome(newNome),
     produtora(newProdutora),
     nota(newNota){};
-
-
 
 // Getters
 string Filme::getNome() {return nome;}
