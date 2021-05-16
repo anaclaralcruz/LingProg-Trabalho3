@@ -7,3 +7,25 @@
 /* "Catalogo.h" ------------------------------------------------- */
 /* Inicializa a classe Grafo */
 
+#include <vector>
+
+#include "Filme.h"
+
+using namespace std;
+
+class Catalogo {
+  public:
+    // Construtor
+    Catalogo();
+
+    // Operadores de insercao / remocao
+    void operator+=(Filme &);
+    void operator-=(Filme &);
+
+    // Mostrar catalogo
+    void show();
+
+  private:
+    // Lista de filmes
+    vector<Filme> filmes;
+};
