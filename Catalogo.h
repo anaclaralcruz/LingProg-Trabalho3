@@ -18,9 +18,16 @@ class Catalogo {
     // Construtor
     Catalogo();
 
-    // Operadores de insercao / remocao
+    // Operadores de insercao e remocao
     void operator+=(Filme &);
     void operator-=(Filme &);
+
+    // Operador de busca
+    Filme* operator()(string);
+
+    // Operadores de troca
+    Filme* operator()(string, string);
+    //Filme* operator()(string, double);
 
     // Mostrar catalogo
     void show();

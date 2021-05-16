@@ -18,18 +18,24 @@ int main (){
     Filme filme1 ("Batata frita", "Universal", 5.0);
     Filme filme2 ("Sandy e junior" , "Paramount" , 3.2);
 
-    cout << "Filme 1\t" << filme1.getNome() << "\t\t" << filme1.getProdutora() << '\t' << filme1.getNota() << endl;
-    cout << "Filme 2\t" << filme2.getNome() << '\t' << filme2.getProdutora() << '\t' << filme2.getNota() << endl;
+   // cout << "Filme 1\t" << filme1.getNome() << "\t\t" << filme1.getProdutora() << '\t' << filme1.getNota() << endl;
+   // cout << "Filme 2\t" << filme2.getNome() << '\t' << filme2.getProdutora() << '\t' << filme2.getNota() << endl;
 
     Catalogo catalogo;
-
-    catalogo.show();
-
     catalogo += filme1;
-    catalogo.show();
     catalogo += filme2;
-    catalogo.show();
 
+  /*  Filme* filme3 = catalogo ("Batat");
+    if (!filme3)
+        cout << "EH NULO!!!!!!!!" << endl;
+    else
+        cout << "Filme 3\t" << filme3->getNome() << '\t' << filme3->getProdutora() << '\t' << filme3->getNota() << endl;*/
+    
+    Filme* filme3 = catalogo ("Batata frita", "Salada de frutas");
+    if (!filme3)
+        cout << "EH NULO!!!!!!!!" << endl;
+    else
+        cout << "Filme 3\t" << filme3->getNome() << '\t' << filme3->getProdutora() << '\t' << filme3->getNota() << endl;
 
     return OK ;
 }
