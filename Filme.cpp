@@ -6,15 +6,42 @@
 
 /* "Filme.cpp" ------------------------------------------------- */
 /* Contem as funcoes da Struct Filme */
+#include <iomanip>
 
 #include "Filme.h"
 using namespace std;
+
+
+// Operador <<
+ostream &operator<<(ostream & output, const Filme & filme){
+  output << filme.nome << "\t\t" 
+         << filme.produtora << "\t\t"
+         << fixed << setprecision (2) << filme.nota << endl;
+  return output;
+}
+// Operador >>
+istream &operator>>(istream & input, Filme& filme){
+  string newNome;
+  string newProdutora;
+  string newNota;
+
+  getline(input, newNome);
+  getline(input, newProdutora);
+  getline(input, newNota);
+
+  filme = Filme(newNome,newProdutora,stod(newNota));
+
+  return input;
+}
+
 
 // Construtor
 Filme::Filme(string newNome, string newProdutora, double newNota):
     nome(newNome),
     produtora(newProdutora),
     nota(newNota){};
+
+
 
 // Getters
 string Filme::getNome() {return nome;}

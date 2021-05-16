@@ -17,6 +17,7 @@ using namespace std ;
 int main (){
     Filme filme1 ("Batata frita", "Universal", 5.0);
     Filme filme2 ("Sandy e junior" , "Paramount" , 3.2);
+    Filme filme3;
 
    // cout << "Filme 1\t" << filme1.getNome() << "\t\t" << filme1.getProdutora() << '\t' << filme1.getNota() << endl;
    // cout << "Filme 2\t" << filme2.getNome() << '\t' << filme2.getProdutora() << '\t' << filme2.getNota() << endl;
@@ -25,11 +26,17 @@ int main (){
     catalogo += filme1;
     catalogo += filme2;
 
+    //cout << "FILME 1:\t" << filme1 ;
+    cout << "Nome, produtora e nota: ";
+    cin >> filme3 ;
+
+    cout << "filme:\t\t" << filme3 ;
+
   /*  Filme* filme3 = catalogo ("Batat");
     if (!filme3)
         cout << "EH NULO!!!!!!!!" << endl;
     else
-        cout << "Filme 3\t" << filme3->getNome() << '\t' << filme3->getProdutora() << '\t' << filme3->getNota() << endl;*/
+        cout << "Filme 3\t" << filme3->getNome() << '\t' << filme3->getProdutora() << '\t' << filme3->getNota() << endl;
     
     Filme* filme3 = catalogo ("Batata frita", "Salada de frutas");
     if (!filme3)
@@ -38,7 +45,7 @@ int main (){
         cout << "Filme 3\t" << filme3->getNome() << '\t' << filme3->getProdutora() << '\t' << filme3->getNota() << endl;
     
     filme3 = catalogo("Batata frita", 10.0);
-    cout << "Filme 3\t" << filme3->getNome() << '\t' << filme3->getProdutora() << '\t' << filme3->getNota() << endl;
+    cout << "Filme 3\t" << filme3->getNome() << '\t' << filme3->getProdutora() << '\t' << filme3->getNota() << endl; */
 
     return OK ;
 }
