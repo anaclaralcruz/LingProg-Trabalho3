@@ -32,10 +32,10 @@ class Catalogo {
         Filme* operator()(string, string);
         Filme* operator()(string, double);
 
-        // Mostrar catalogo
-        void show();
-
     private:
         // Lista de filmes
         vector<Filme> filmes;
+        
+        // Ordenar lista 
+        void ordenaLista();
 };

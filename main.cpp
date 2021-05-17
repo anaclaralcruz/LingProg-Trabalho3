@@ -17,7 +17,8 @@ using namespace std ;
 int main (){
     Filme filme1 ("Batata frita", "Universal", 5.0);
     Filme filme2 ("Sandy e junior" , "Paramount" , 3.2);
-    Filme filme3;
+    Filme filme3 ("Aconteceu" , "Vasco da Gama" , 1);
+    Filme filme4 ("Zebrinha", "Ana Clara", 2.1);
 
    // cout << "Filme 1\t" << filme1.getNome() << "\t\t" << filme1.getProdutora() << '\t' << filme1.getNota() << endl;
    // cout << "Filme 2\t" << filme2.getNome() << '\t' << filme2.getProdutora() << '\t' << filme2.getNota() << endl;
@@ -25,6 +26,8 @@ int main (){
     Catalogo catalogo;
     catalogo += filme1;
     catalogo += filme2;
+    catalogo += filme3;
+    catalogo += filme4;
 
     //cout << "FILME 1:\t" << filme1 ;
     cout << catalogo ;

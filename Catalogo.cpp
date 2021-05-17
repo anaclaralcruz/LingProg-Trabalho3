@@ -32,6 +32,7 @@ void Catalogo::operator+=(Filme& novoFilme){
             return ;
         }
     filmes.push_back(novoFilme);
+    ordenaLista();
 }
 
 // Remover filme
@@ -70,9 +71,15 @@ Filme* Catalogo::operator()(string nome, double novaNota){
     return filmeAlterado;
 }
 
-// Mostrar catalogo
-void Catalogo::show(){
-    cout << "CATALOGO: \n" ;
+// Ordena lista
+void Catalogo::ordenaLista(){
+    Filme auxiliar("","", 0);
     for (long unsigned int i = 0 ; i < filmes.size() ; i++)
-        cout << filmes[i].getNome() << endl ;
+        for (long unsigned int j = 0 ; j < filmes.size() ; j++)
+            if (filmes[j] > filmes[i]){
+                auxiliar = filmes [i];
+                filmes[i] = filmes[j];
+                filmes[j] = auxiliar ;
+
+            }
 }
