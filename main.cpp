@@ -77,8 +77,11 @@ int main (){
         
         Filme* filme = catalogo(nomeDoFilme);
 
-        catalogo -= *filme ;
-        cout << "Filme \"" << filme->getNome() << "\" removido com sucesso!!" << endl;
+        if (!filme) cout << "FILME NAO ENCONTRADO!" << endl;
+        else {
+            catalogo -= *filme ;
+            cout << "Filme \"" << nomeDoFilme << "\" removido com sucesso!!" << endl;
+        }
     }
 
     else if (opcaoMenu == 5){
@@ -140,7 +143,7 @@ int main (){
     if (opcaoExibicao == 's')
         cout << catalogo ;
 
-    if (opcaoMenu != 1 && opcaoMenu != 5 && opcaoMenu != 8){
+    if (opcaoMenu != 5 && opcaoMenu != 8){
         cout << endl << "Deseja salvar as alteracoes? (s/n) " ;
         cin >> opcaoExibicao ;
 

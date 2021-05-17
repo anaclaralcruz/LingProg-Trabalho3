@@ -31,6 +31,7 @@ Catalogo::Catalogo(string nomeDoArquivo){
     if (linhas.size() != 0)
         for (long unsigned int i = 0 ; i < linhas.size() ; i++)
             criaFilmes (linhas[i]);
+    ordenaLista();
 }
 
 // Adicionar filme
@@ -52,12 +53,16 @@ void Catalogo::operator+=(vector <Filme>& novosFilmes){
 
 // Remover filme
 void Catalogo::operator-=(Filme& filme){
-    for (long unsigned int i = 0 ; i < filmes.size() ; i++)
-        if (filmes[i] == filme){
-            filmes.erase(filmes.begin()+i);
-            return ;
+    if (filmes.size() == 0)
+        cout << "Este filme nao esta no catalogo!" << endl ;
+    else
+        for (long unsigned int i = 0 ; i < filmes.size() ; i++)
+            if (filmes[i] == filme){
+                filmes.erase(filmes.begin()+i);
+                return ;
         }
     cout << "Este filme nao esta no catalogo!" << endl ;
+    return ;
 }
 
 // Buscar um filme pelo nome
