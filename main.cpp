@@ -18,6 +18,7 @@ using namespace std ;
 
 int main (){
     int opcaoMenu;
+    char opcaoExibicao;
 
     Catalogo catalogo(NOME_ARQUIVO_CATALOGO);
 
@@ -31,7 +32,6 @@ int main (){
     cout << "| 6 | Editar produtora de um filme                    |" << endl;
     cout << "| 7 | Editar nota de um filme                         |" << endl;
     cout << "| 8 | Exibir filme mais bem avaliado                  |" << endl;
-    cout << "| 9 | Sair e salvar dados                             |" << endl;
     cout << "|_____________________________________________________|" << endl;
     cout << "O que deseja? (digite o numero) -> ";
     cin >> opcaoMenu ;
@@ -85,7 +85,7 @@ int main (){
         string nomeDoFilme ;
 
         cout << "Escreva o nome do filme que esta procurando: " ;
-        cin >> nomeDoFilme ;
+        getline (cin, nomeDoFilme) ;
         
         Filme* filme = catalogo(nomeDoFilme);
 
@@ -128,7 +128,23 @@ int main (){
         main ();
     }
 
-    catalogo.escreverArquivo();
+    if (opcaoMenu != 1){
+        cout << "Deseja ver o catalogo atual? (s/n) " ;
+        cin >> opcaoExibicao;
+    }
+
+    if (opcaoExibicao == 's')
+        cout << catalogo ;
+
+    if (opcaoMenu != 1 && opcaoMenu != 5 && opcaoMenu != 8){
+        cout << endl << "Deseja salvar as alteracoes? (s/n) " ;
+        cin >> opcaoExibicao ;
+
+        if (opcaoExibicao == 's'){
+            catalogo.escreverArquivo();
+            cout << "Mudancas salvas no arquivo \"" << NOME_ARQUIVO_CATALOGO << "\" com sucesso!" << endl ;
+        }
+    }
 
     cout << endl;
     return OK ;
