@@ -15,7 +15,8 @@ using namespace std;
 
 class Catalogo {
     // Operadores globais
-    friend ostream &operator<<(ostream&, const Filme &);
+    friend ostream &operator<<(ostream&, const Catalogo &);
+
     public:
         // Construtor
         Catalogo();

@@ -11,7 +11,6 @@
 #include "Filme.h"
 using namespace std;
 
-
 // Operador <<
 ostream &operator<<(ostream & output, const Filme & filme){
   output << filme.nome << "\t\t" 
@@ -36,9 +35,9 @@ istream &operator>>(istream & input, Filme& filme){
 
 // Construtor
 Filme::Filme(string newNome, string newProdutora, double newNota):
-    nome(newNome),
-    produtora(newProdutora),
-    nota(newNota){};
+  nome(newNome),
+  produtora(newProdutora),
+  nota(newNota){};
 
 // Getters
 string Filme::getNome() {return nome;}

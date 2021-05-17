@@ -27,10 +27,7 @@ int main (){
     catalogo += filme2;
 
     //cout << "FILME 1:\t" << filme1 ;
-    cout << "Nome, produtora e nota: ";
-    cin >> filme3 ;
-
-    cout << "filme:\t\t" << filme3 ;
+    cout << catalogo ;
 
   /*  Filme* filme3 = catalogo ("Batat");
     if (!filme3)

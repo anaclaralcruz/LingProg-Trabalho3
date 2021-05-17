@@ -13,6 +13,14 @@
 
 using namespace std ;
 
+// Operador <<
+ostream &operator<<(ostream & output, const Catalogo & catalogo){
+    output << "NOME\t\t\tPRODUTORA\t\tNOTA" << endl ;
+    for (long unsigned int i = 0 ; i < catalogo.filmes.size() ; i++)
+        output << catalogo.filmes[i] ;
+    return output;
+}
+
 // Construtor
 Catalogo::Catalogo(){}
 
