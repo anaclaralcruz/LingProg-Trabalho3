@@ -28,11 +28,17 @@ Catalogo::Catalogo(){}
 void Catalogo::operator+=(Filme& novoFilme){
     for (long unsigned int i = 0 ; i < filmes.size() ; i++)
         if (filmes[i] == novoFilme){
-            cout << "Este filme ja esta no catalogo!" << endl ;
+            cout << "O filme \"" << novoFilme.getNome() << "\" ja esta no catalogo!" << endl ;
             return ;
         }
     filmes.push_back(novoFilme);
     ordenaLista();
+}
+
+// Adicionar lista de filmes
+void Catalogo::operator+=(vector <Filme>& novosFilmes){
+    for (long unsigned int i = 0 ; i < novosFilmes.size() ; i++)
+        (*this) += novosFilmes[i];
 }
 
 // Remover filme

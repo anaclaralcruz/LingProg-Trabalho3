@@ -23,6 +23,7 @@ class Catalogo {
 
         // Operadores de insercao e remocao
         void operator+=(Filme &);
+        void operator+=(vector <Filme> &);
         void operator-=(Filme &);
 
         // Operador de busca
