@@ -8,6 +8,7 @@
 /* Contem os metodos da classe Catalogo */
 
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 
 #include "Catalogo.h"
@@ -24,6 +25,8 @@ ostream &operator<<(ostream & output, const Catalogo & catalogo){
 
 // Construtor
 Catalogo::Catalogo(string nomeDoArquivo){
+    nomeArquivoCatalogo = nomeDoArquivo;
+
     vector <string> linhas = readLines (nomeDoArquivo);
     if (linhas.size() != 0)
         for (long unsigned int i = 0 ; i < linhas.size() ; i++)
@@ -136,4 +139,17 @@ void Catalogo::criaFilmes (string linha) {
         Filme filme (vetor[0], vetor[1], stod(vetor[2]));
         filmes.push_back(filme);
     }
+}
+
+// Escrever o arquivo com os dados inseridos no catalogo
+void Catalogo::escreverArquivo(){
+	ofstream out(nomeArquivoCatalogo);
+
+    for (long unsigned int i = 0 ; i < filmes.size() ; i++){
+        out << filmes[i].getNome() << ';' 
+            << filmes[i].getProdutora() << ';'
+            << fixed << setprecision (2) << filmes[i].getNota() << endl;
+    }
+
+	out.close();
 }

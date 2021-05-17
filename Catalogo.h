@@ -33,9 +33,15 @@ class Catalogo {
         Filme* operator()(string, string);
         Filme* operator()(string, double);
 
+        // Escreve o catalogo num arquivo
+        void escreverArquivo();
+
     private:
         // Lista de filmes
         vector<Filme> filmes;
+
+        // Nome do arquivo Catalogo
+        string nomeArquivoCatalogo;
         
         // Ordenar lista 
         void ordenaLista();
@@ -43,5 +49,5 @@ class Catalogo {
         // Ler linhas do arquivo de entrada:
         vector <string> readLines(string);
         // Cria Filmes a partir dos dados de entrada:
-        void criaFilmes (string);
+        void criaFilmes (string);        
 };
