@@ -19,7 +19,7 @@ class Catalogo {
 
     public:
         // Construtor
-        Catalogo();
+        Catalogo(string);
 
         // Operadores de insercao e remocao
         void operator+=(Filme &);
@@ -39,4 +39,9 @@ class Catalogo {
         
         // Ordenar lista 
         void ordenaLista();
+
+        // Ler linhas do arquivo de entrada:
+        vector <string> readLines(string);
+        // Cria Filmes a partir dos dados de entrada:
+        void criaFilmes (string);
 };

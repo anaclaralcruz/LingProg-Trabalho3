@@ -8,6 +8,7 @@
 /* Contem os metodos da classe Catalogo */
 
 #include <iostream>
+#include <fstream>
 
 #include "Catalogo.h"
 
@@ -15,14 +16,19 @@ using namespace std ;
 
 // Operador <<
 ostream &operator<<(ostream & output, const Catalogo & catalogo){
-    output << "NOME\t\t\tPRODUTORA\t\tNOTA" << endl ;
+    output << "\tNOME\t\t\tPRODUTORA\t\tNOTA" << endl ;
     for (long unsigned int i = 0 ; i < catalogo.filmes.size() ; i++)
         output << catalogo.filmes[i] ;
     return output;
 }
 
 // Construtor
-Catalogo::Catalogo(){}
+Catalogo::Catalogo(string nomeDoArquivo){
+    vector <string> linhas = readLines (nomeDoArquivo);
+    if (linhas.size() != 0)
+        for (long unsigned int i = 0 ; i < linhas.size() ; i++)
+            criaFilmes (linhas[i]);
+}
 
 // Adicionar filme
 void Catalogo::operator+=(Filme& novoFilme){
@@ -88,4 +94,46 @@ void Catalogo::ordenaLista(){
                 filmes[j] = auxiliar ;
 
             }
+}
+
+//Le um arquivo e devolve as linhas separadas em um vetor 
+vector <string> Catalogo::readLines (string arquivo){
+
+  vector <string> vetor;
+  string linha;
+
+  ifstream file(arquivo);
+  
+  while (getline(file, linha)) {
+    vetor.push_back(linha);
+  }
+  return vetor;
+}
+
+// Cria os objetos a partir de uma linha do arquivo de entrada
+/* Recebe uma string que representa um filme e cria o Struct associado 
+ex.: se a entrada for "xmen;Universal;3.0" sera criado um Filme com nome "Xmen" produtora "Universal" nota 3.0 */
+void Catalogo::criaFilmes (string linha) {
+    string dado;
+    long unsigned int i ;
+    vector <string> vetor;
+
+    for(i=0 ; i<=linha.length() ; i++){
+        if(linha[i] != ';' && linha[i] != '\0'){
+            dado.push_back(linha[i]);
+        }
+        else{
+            vetor.push_back(dado);
+            dado = "";
+        }
+    }
+
+    if (vetor.size() != 3)
+        cout << "ERRO !!! Parece que seu arquivo de entrada esta corrompido. "
+             << "Certifique-se de que todos os filmes contem nome, produtora e nota."
+             << endl ;
+    else {
+        Filme filme (vetor[0], vetor[1], stod(vetor[2]));
+        filmes.push_back(filme);
+    }
 }

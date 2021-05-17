@@ -27,11 +27,11 @@ int main (){
    // cout << "Filme 1\t" << filme1.getNome() << "\t\t" << filme1.getProdutora() << '\t' << filme1.getNota() << endl;
    // cout << "Filme 2\t" << filme2.getNome() << '\t' << filme2.getProdutora() << '\t' << filme2.getNota() << endl;
 
-    Catalogo catalogo;
+    Catalogo catalogo("Catalogo.txt");
 
-    vector <Filme> filmes = {filme1, filme2, filme3, filme4, filme5};
+   // vector <Filme> filmes = {filme1, filme2, filme3, filme4, filme5};
 
-    catalogo += filmes;
+    //catalogo += filmes;
 
     //cout << "FILME 1:\t" << filme1 ;
     cout << catalogo ;
