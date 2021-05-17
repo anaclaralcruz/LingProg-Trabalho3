@@ -7,50 +7,54 @@
 /* "main.cpp" ------------------------------------------------- */
 /* Funcao principal que contem o menu do programa */
 
-#define OK      0
+#define OK                      0
+
+#define NOME_ARQUIVO_CATALOGO   "Catalogo.txt"
 
 #include <iostream>
 #include "Catalogo.h"
 
-
-#include <vector>
-
 using namespace std ;
 
 int main (){
-    Filme filme1 ("Batata frita", "Universal", 5.0);
-    Filme filme2 ("Sandy e junior" , "Paramount" , 3.2);
-    Filme filme3 ("Aconteceu" , "Vasco da Gama" , 1);
-    Filme filme4 ("Zebrinha", "Ana Clara", 2.1);
+    int opcaoMenu;
 
-   // cout << "Filme 1\t" << filme1.getNome() << "\t\t" << filme1.getProdutora() << '\t' << filme1.getNota() << endl;
-   // cout << "Filme 2\t" << filme2.getNome() << '\t' << filme2.getProdutora() << '\t' << filme2.getNota() << endl;
+    Catalogo catalogo(NOME_ARQUIVO_CATALOGO);
 
-    Catalogo catalogo("Catalogo.txt");
+    // Menu de entrada:
+    cout << " ______________________________________________________" << endl;
+    cout << "| 1 | Exibir Catalogo em ordem alfabetica             |" << endl;
+    cout << "| 2 | Inserir filme no catalogo                       |" << endl;
+    cout << "| 3 | Inserir varios filmes no catalogo               |" << endl;
+    cout << "| 4 | Remover um filme do catalogo                    |" << endl;
+    cout << "| 5 | Buscar um filme                                 |" << endl;
+    cout << "| 6 | Editar um filme                                 |" << endl;
+    cout << "| 7 | Exibir filme mais bem avaliado                  |" << endl;
+    cout << "| 8 | Sair e salvar dados                             |" << endl;
+    cout << "|_____________________________________________________|" << endl;
+    cout << "O que deseja? (digite o numero) -> ";
+    cin >> opcaoMenu ;
+    cin.ignore();
+    cout << endl;
 
-    vector <Filme> filmes = {filme1, filme2, filme3, filme4};
+    if (opcaoMenu == 1)
+        cout << catalogo ;
+    
+    else if (opcaoMenu == 2){
+        Filme filme ;
+        cout << "Escreva [Nome do filme] ENTER [Produtora] ENTER [nota] ENTER :\t" ;
+        cin >> filme ;
+        catalogo += filme ;
+        cout << "Filme adicionado com sucesso!!" << endl ;
+    }
 
-    catalogo += filmes;
+    else {
+        cout << "ENTRADA INVALIDA escolha um numero de 1 a 8 !!" << endl;
+        main ();
+    }
 
     catalogo.escreverArquivo();
 
-    //cout << "FILME 1:\t" << filme1 ;
-  //  cout << catalogo ;
-
-  /*  Filme* filme3 = catalogo ("Batat");
-    if (!filme3)
-        cout << "EH NULO!!!!!!!!" << endl;
-    else
-        cout << "Filme 3\t" << filme3->getNome() << '\t' << filme3->getProdutora() << '\t' << filme3->getNota() << endl;
-    
-    Filme* filme3 = catalogo ("Batata frita", "Salada de frutas");
-    if (!filme3)
-        cout << "EH NULO!!!!!!!!" << endl;
-    else
-        cout << "Filme 3\t" << filme3->getNome() << '\t' << filme3->getProdutora() << '\t' << filme3->getNota() << endl;
-    
-    filme3 = catalogo("Batata frita", 10.0);
-    cout << "Filme 3\t" << filme3->getNome() << '\t' << filme3->getProdutora() << '\t' << filme3->getNota() << endl; */
-
+    cout << endl;
     return OK ;
 }
