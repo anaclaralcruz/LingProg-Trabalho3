@@ -28,9 +28,10 @@ int main (){
     cout << "| 3 | Inserir varios filmes no catalogo               |" << endl;
     cout << "| 4 | Remover um filme do catalogo                    |" << endl;
     cout << "| 5 | Buscar um filme                                 |" << endl;
-    cout << "| 6 | Editar um filme                                 |" << endl;
-    cout << "| 7 | Exibir filme mais bem avaliado                  |" << endl;
-    cout << "| 8 | Sair e salvar dados                             |" << endl;
+    cout << "| 6 | Editar produtora de um filme                    |" << endl;
+    cout << "| 7 | Editar nota de um filme                         |" << endl;
+    cout << "| 8 | Exibir filme mais bem avaliado                  |" << endl;
+    cout << "| 9 | Sair e salvar dados                             |" << endl;
     cout << "|_____________________________________________________|" << endl;
     cout << "O que deseja? (digite o numero) -> ";
     cin >> opcaoMenu ;
@@ -92,6 +93,35 @@ int main (){
         else cout << *filme << endl;
     }
    
+    else if (opcaoMenu == 6){
+        string nomeDoFilme ;
+        cout << "Qual filme deseja editar? " ;
+        getline(cin, nomeDoFilme) ;
+        
+        string novaProdutora;
+        cout << "Digite a nova produtora: ";
+        getline(cin, novaProdutora) ;
+
+        Filme* filme = catalogo(nomeDoFilme, novaProdutora);
+
+        if (!filme) cout << "FILME NAO ENCONTRADO!" << endl;
+        else cout << "Filme editado com sucesso!" << endl;
+    }
+
+    else if (opcaoMenu == 7){
+        string nomeDoFilme ;
+        cout << "Qual filme deseja editar? " ;
+        getline(cin, nomeDoFilme) ;
+        
+        string novaNota;
+        cout << "Digite a nova nota: ";
+        getline(cin, novaNota) ;
+        
+        Filme* filme = catalogo(nomeDoFilme, stod(novaNota));
+
+        if (!filme) cout << "FILME NAO ENCONTRADO!" << endl;
+        else cout << "Filme editado com sucesso!" << endl;
+    }
 
     else {
         cout << "ENTRADA INVALIDA escolha um numero de 1 a 8 !!" << endl;
