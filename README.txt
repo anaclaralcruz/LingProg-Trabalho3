@@ -13,9 +13,9 @@ No menu, estao seguintes funcionalidades:
 3. Inserir varios filmes no catalogo;
 4. Remover um filme do catalogo;
 5. Buscar um filme;
-6. Editar um filme;
-7. Exibir filme mais bem avaliado;
-8. Sair e salvar alterações.
+6. Editar a produtora de um filme;
+7. Editar a nota de um filme;
+8. Exibir filme mais bem avaliado.
 
 ---------------------------------- MANUAL DO PROGRAMA ---------------------------------------
 

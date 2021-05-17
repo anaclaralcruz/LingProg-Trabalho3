@@ -33,6 +33,9 @@ class Catalogo {
         Filme* operator()(string, string);
         Filme* operator()(string, double);
 
+        // Buscar filme mais bem avaliado
+        void maisBemAvaliado();
+
         // Escreve o catalogo num arquivo
         void escreverArquivo();
 

@@ -86,6 +86,19 @@ Filme* Catalogo::operator()(string nome, double novaNota){
     return filmeAlterado;
 }
 
+// Exibir filme mais bem avaliado
+void Catalogo::maisBemAvaliado(){
+    int indiceMaisBemAvaliado = 0;
+    if (filmes.size() == 0)
+        cout << "NAO HA NENHUM FILME NO CATALOGO! :(" << endl ;
+    else {
+        for (long unsigned int i = 0 ; i < filmes.size() ; i++)
+            if (filmes[i].getNota() > filmes[indiceMaisBemAvaliado].getNota())
+                indiceMaisBemAvaliado = i ;
+        cout << "FILME MAIS BEM AVALIADO:\n" << filmes[indiceMaisBemAvaliado];
+    }
+}
+
 // Ordena lista
 void Catalogo::ordenaLista(){
     Filme auxiliar("","", 0);

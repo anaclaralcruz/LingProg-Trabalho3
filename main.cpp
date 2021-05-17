@@ -123,6 +123,10 @@ int main (){
         else cout << "Filme editado com sucesso!" << endl;
     }
 
+    else if (opcaoMenu == 8){
+        catalogo.maisBemAvaliado();
+    }
+
     else {
         cout << "ENTRADA INVALIDA escolha um numero de 1 a 8 !!" << endl;
         main ();
